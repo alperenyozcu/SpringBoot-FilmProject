@@ -22,9 +22,5 @@ public class Actors implements Serializable {
     @Column(name = "ACTORSURNAME")
     private  String actorsurname;
 
-    @Column(name = "FILMROLE")
-    private String filmrole;
-
-
 
 }
