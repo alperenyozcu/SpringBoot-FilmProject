@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html lang="en"  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="~{AdminLayout.html}">
+<html lang="en"  >
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Filmler</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.2/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+
     <style>
         *{
             font-family: 'Poppins', sans-serif;
@@ -79,38 +79,39 @@
             color: #8e24aa;
         }
     </style>
+
+
 </head>
 <body>
 
 </body>
-<section layout:fragment="content">
-<div class="container mt-5">
-    <div class="row justify-content-center" >
-        <div class="card movie_card" th:each="films:${Film}" >
-            <img src="/static/images/61282.webp" class="card-img-top" alt="...">
-            <div class="card-body">
-            <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer">
-                </i>
-                <h5 class="card-title" th:text="${films.getFilmname()}">POKEMON Detective Pikachu</h5>
-                <p class="card-context" th:text="${films.getDescription()}"></p>
-                <span class="movie_info" th:text="${films.getRelased()}">2019</span>
-                <span class="movie_info float-right"><i class="fas fa-star"></i> 9 / 10</span>
-                <a th:href="@{'/Film/Detay/' + ${films.getFilmid()}}">Detay</a>
+    <div class="container mt-5">
+        <div class="row justify-content-center" >
+            <div class="card movie_card" th:each="films:${Film}" >
+                <img src="/static/images/61282.webp" class="card-img-top" alt="...">
+                <div class="card-body">
+              <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer">
+                    </i>
+                    <h5 class="card-title" th:text="${films.getFilmname()}">POKEMON Detective Pikachu</h5>
+                    <p class="card-context" th:text="${films.getDescription()}"></p>
+                    <span class="movie_info" th:text="${films.getRelased()}">2019</span>
+                    <span class="movie_info float-right"><i class="fas fa-star"></i> 9 / 10</span>
+                    <a th:href="@{'/user/Detay/' + ${films.getFilmid()}}">Detay</a>
+                </div>
             </div>
+
         </div>
 
     </div>
 
-</div>
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 
-<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script>
+        $(function () {
+            $('[data-toggle="tooltip"]').tooltip()
+        })
+    </script>
 
-<script>
-    $(function () {
-        $('[data-toggle="tooltip"]').tooltip()
-    })
-</script>
-</section>
 </html>

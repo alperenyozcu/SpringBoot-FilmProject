@@ -26,7 +26,7 @@ public class Film implements Serializable {
     @Column(name = "TYPE")
     private String type;
 
-    @Column(name = "DESCRIPTION")
+    @Column(name = "DESCRIPTION", columnDefinition = "TEXT")
     private String description;
 
     @Temporal(TemporalType.DATE)

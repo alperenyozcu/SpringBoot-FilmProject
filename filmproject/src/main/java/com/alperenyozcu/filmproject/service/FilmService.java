@@ -33,6 +33,8 @@ public class FilmService {
         languageRepository.save(languages);
     }
 
+
+
     public Boolean createFilm(Film film, String[] strActorId, String[] strLangId) {
 
         try{
@@ -55,5 +57,9 @@ public class FilmService {
             System.out.println(e.getMessage());
             return  false;
         }
+    }
+
+    public Film findById(Integer filmId) {
+       return filmRepository.findById(filmId).get();
     }
 }

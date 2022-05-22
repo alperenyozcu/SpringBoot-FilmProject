@@ -9,6 +9,7 @@ import com.alperenyozcu.filmproject.repository.LanguageRepository;
 import com.alperenyozcu.filmproject.service.FilmService;
 import com.google.gson.Gson;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.parameters.P;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -95,5 +96,27 @@ public class FilmController {
 
         return new RedirectView("/Film/AddFilms");
 
+    }
+    @GetMapping("/Detay/{filmId}")
+    public ModelAndView FilmDetay(@PathVariable("filmId") Integer filmId,Model model)
+    {
+        Film film=filmService.findById(filmId);
+        List<Actors> all = actorRepository.findAll();
+        List<Languages> all1 = languageRepository.findAll();
+        model.addAttribute("Actors",all);
+        model.addAttribute("Languages",all1);
+        model.addAttribute(film);
+       return new ModelAndView("FilmDetail");
+    }
+    @PostMapping ("/Update")
+    public  RedirectView updateFilm (@ModelAttribute Film film)
+    {
+        filmRepository.save(film);
+       return  new RedirectView("/Film/Films");
+    }
+    @GetMapping("/Delete/{filmId}")
+    public RedirectView DeleteFilm (@PathVariable("filmId") Integer filmId) {
+        filmRepository.deleteById(filmId);
+        return new RedirectView("/Film/Films");
     }
 }
