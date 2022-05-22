@@ -1,10 +1,14 @@
 package com.alperenyozcu.filmproject.model;
 
+import javassist.bytecode.ByteArray;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.Type;
 import org.springframework.security.core.parameters.P;
+import org.springframework.web.multipart.MultipartFile;
 
 import javax.persistence.*;
+import java.io.File;
 import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
@@ -35,6 +39,9 @@ public class Film implements Serializable {
 
     @Column(name = "PRODUCTION")
     private String production;
+
+    @Lob
+    private byte[] poster;
 
     @ManyToMany(fetch = FetchType.EAGER,
             cascade =

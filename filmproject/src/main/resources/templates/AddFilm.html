@@ -73,7 +73,7 @@
 <body>
 <section layout:fragment="content">
     <div class="container">
-        <form id="filmcontainer" method="post" action="/Film/Add">
+        <form id="filmcontainer" method="post" action="/Film/Add" enctype="multipart/form-data">
             <div class="row">
                 <div class="col-25">
                     <label for="filmname">Film Adı</label>
@@ -136,6 +136,14 @@
                 </div>
                 <div class="col-75">
                     <textarea id="description" name="description"  placeholder="Açıklama" style="height:200px"></textarea>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-25">
+                    <label for="poster">Poster</label>
+                </div>
+                <div class="col-75">
+                    <input id="poster" name="poster" type="file"  placeholder="Poster" style="height:200px" />
                 </div>
             </div>
             <div class="row">

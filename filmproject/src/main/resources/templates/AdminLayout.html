@@ -10,6 +10,28 @@
 		<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 		<link rel="stylesheet" href=".././static/adminLayoutCss/style.css">
   </head>
+  <style>
+
+      #search[type=text] {
+          width: 300px;
+          box-sizing: border-box;
+          border: 2px solid #ccc;
+          border-radius: 4px;
+          font-size: 16px;
+          background-color: white;
+          background-image: url('https://www.w3schools.com/css/searchicon.png');
+          background-position: 10px 10px;
+          background-repeat: no-repeat;
+          padding: 12px 20px 12px 40px;
+          -webkit-transition: width 0.4s ease-in-out;
+          transition: width 0.4s ease-in-out;
+          margin-left: 30px;
+
+      #search[type=text]:focus {
+          width: 100%;
+      }
+
+  </style>
   <body>
 
 		<div class="wrapper d-flex align-items-stretch">
@@ -48,6 +70,7 @@
 	      </div>
     	</nav>
 
+
         <!-- Page Content  -->
       <div id="content" class="p-4 p-md-5">
 
@@ -61,6 +84,11 @@
             <button class="btn btn-dark d-inline-block d-lg-none ml-auto" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                 <i class="fa fa-bars"></i>
             </button>
+              <form action="/Film/Search" method="get">
+                  <input  id="search" type="text" name="searchParam" placeholder="Film Adı, Oyuncu Adı, Tür..">
+                  <button type="submit">Ara</button>
+              </form>
+
 
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="nav navbar-nav ml-auto">
