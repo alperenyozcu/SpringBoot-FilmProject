@@ -30,7 +30,7 @@ public class FilmController {
     @Autowired
     FilmRepository filmRepository;
 
-    @GetMapping({"/AddFilms"})
+    @GetMapping({"/AddFilms"})//admin
     public ModelAndView home1(Model model) {
 
         List<Actors> all = actorRepository.findAll();
@@ -41,13 +41,13 @@ public class FilmController {
         return new ModelAndView("AddFilm");
 
     }
-    @GetMapping({"/AddActors"})
+    @GetMapping({"/AddActors"})//admin
     public ModelAndView home2(Model model) {
 
         return new ModelAndView("AddActors");
 
     }
-    @GetMapping({"/Films"})
+    @GetMapping({"/Films"})//admin
     public ModelAndView home5(Model model) {
         List<Film> all = filmRepository.findAll();
         List<String> posters= new ArrayList<>();
@@ -60,26 +60,26 @@ public class FilmController {
         return new ModelAndView("AdminFilms");
 
     }
-    @GetMapping({"/AddLang"})
+    @GetMapping({"/AddLang"})//admin
     public  ModelAndView home4(Model model)
     {
 
         return new ModelAndView("AddLanguages");
     }
-    @PostMapping("AddAct")
+    @PostMapping("AddAct")//admin
     public RedirectView addAct(@ModelAttribute Actors actors)
     {
         filmService.createAct(actors);
         return new RedirectView("/Film/AddActors");
     }
-    @PostMapping("SaveLang")
+    @PostMapping("SaveLang")//admin
     public RedirectView addAct(@ModelAttribute Languages languages)
     {
         filmService.createLang(languages);
         return new RedirectView("/Film/AddLang");
     }
 
-    @PostMapping("/Add")// film kayıt
+    @PostMapping("/Add")// film kayıt admin
     public  RedirectView addfilm(@RequestParam String filmname, @RequestParam String production, @RequestParam String type,
                                  @RequestParam String actors, @RequestParam String languages,
                                  @RequestParam Date relased, @RequestParam String description
@@ -120,7 +120,7 @@ public class FilmController {
         model.addAttribute(film);
        return new ModelAndView("FilmDetail");
     }
-    @PostMapping ("/Update")
+    @PostMapping ("/Update")//admin
     public  RedirectView updateFilm (@ModelAttribute Film film)
     {
         filmRepository.save(film);
@@ -131,7 +131,7 @@ public class FilmController {
         filmRepository.deleteById(filmId);
         return new RedirectView("/Film/Films");
     }
-    @GetMapping("/Search")
+    @GetMapping("/Search")//admin
     public ModelAndView SearchFilm(@RequestParam String searchParam,Model model)
     {
 
