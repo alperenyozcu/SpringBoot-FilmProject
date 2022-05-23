@@ -88,7 +88,7 @@
     <div class="container mt-5">
         <div class="row justify-content-center" >
             <div class="card movie_card" th:each="films:${Film}" >
-                <img src="/static/images/61282.webp" class="card-img-top" alt="...">
+                <img  th:src="*{'data:image/png;base64,'+ Posters.get(Film.indexOf(films))}" class="card-img-top" alt="...">
                 <div class="card-body">
               <i class="fas fa-play play_button" data-toggle="tooltip" data-placement="bottom" title="Play Trailer">
                     </i>

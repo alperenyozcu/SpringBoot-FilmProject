@@ -15,10 +15,8 @@ import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.view.RedirectView;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+
+import java.util.*;
 
 @Controller
 @RequestMapping(value = "/Film",method = RequestMethod.GET)
@@ -52,7 +50,13 @@ public class FilmController {
     @GetMapping({"/Films"})
     public ModelAndView home5(Model model) {
         List<Film> all = filmRepository.findAll();
+        List<String> posters= new ArrayList<>();
+        all.forEach(film -> {
+            String base64= Base64.getEncoder().encodeToString(film.getPoster());
+            posters.add(base64);
+        });
         model.addAttribute("Film",all);
+        model.addAttribute("Posters",posters);
         return new ModelAndView("AdminFilms");
 
     }
@@ -90,7 +94,6 @@ public class FilmController {
         try
         {
             film.setPoster(poster.getBytes());
-
         }
         catch (Exception e)
         {

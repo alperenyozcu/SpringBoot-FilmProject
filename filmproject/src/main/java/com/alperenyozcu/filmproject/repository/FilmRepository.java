@@ -1,6 +1,7 @@
 package com.alperenyozcu.filmproject.repository;
 
 import com.alperenyozcu.filmproject.model.Film;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Modifying;
 import org.springframework.data.jpa.repository.Query;
@@ -20,4 +21,7 @@ public interface FilmRepository  extends JpaRepository<Film,Integer> {
             " group  by f.filmid ORDER BY relased DESC ",
             nativeQuery = true)
     List<Film> Search(String searchParam);
+
+    @Query(value="SELECT poster from film ",nativeQuery = true)
+    List<Film> poster();
 }

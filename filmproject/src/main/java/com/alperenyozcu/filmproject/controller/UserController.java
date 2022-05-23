@@ -18,6 +18,8 @@ import org.springframework.web.servlet.view.RedirectView;
 
 import java.security.Principal;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.Date;
 import java.util.List;
 
@@ -49,6 +51,12 @@ public class UserController {
         List<Film> all = filmRepository.findAll();
         model.addAttribute("Film",all);
         User kullanici = userservice.findByMail(principal.getName());
+        List<String> posters= new ArrayList<>();
+        all.forEach(film -> {
+            String base64= Base64.getEncoder().encodeToString(film.getPoster());
+            posters.add(base64);
+        });
+        model.addAttribute("Posters",posters);
         model.addAttribute("kullanici", kullanici);
         return new ModelAndView("UserFilms");
     }
@@ -64,6 +72,8 @@ public class UserController {
         model.addAttribute("Actors",all);
         model.addAttribute("Languages",all1);
         model.addAttribute("Film",film);
+        String s = Base64.getEncoder().encodeToString(film.getPoster());
+        model.addAttribute("poster",s);
         return new ModelAndView("UserFilmDetail");
     }
 
