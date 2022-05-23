@@ -60,6 +60,21 @@ public class UserController {
         model.addAttribute("kullanici", kullanici);
         return new ModelAndView("UserFilms");
     }
+    @GetMapping("/Search")
+    public ModelAndView SearchFilm(@RequestParam String searchParam,Model model)
+    {
+
+        List<Film> searchFilm= filmRepository.Search(searchParam.isBlank() || searchParam.isEmpty() ? null : searchParam);
+        List<String> posters= new ArrayList<>();
+        searchFilm.forEach(film -> {
+            String base64= Base64.getEncoder().encodeToString(film.getPoster());
+            posters.add(base64);
+        });
+
+        model.addAttribute("Posters",posters);
+        model.addAttribute("Film",searchFilm);
+        return  new ModelAndView("UserFilms");
+    }
 
     @GetMapping("/Detay/{filmId}")
     public ModelAndView FilmDetay(@PathVariable("filmId") Integer filmId, Model model)

@@ -136,6 +136,13 @@ public class FilmController {
     {
 
        List<Film> searchFilm= filmRepository.Search(searchParam.isBlank() || searchParam.isEmpty() ? null : searchParam);
+        List<String> posters= new ArrayList<>();
+        searchFilm.forEach(film -> {
+            String base64= Base64.getEncoder().encodeToString(film.getPoster());
+            posters.add(base64);
+        });
+
+        model.addAttribute("Posters",posters);
         model.addAttribute("Film",searchFilm);
         return  new ModelAndView("AdminFilms");
     }
