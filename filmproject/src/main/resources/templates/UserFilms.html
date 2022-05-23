@@ -168,6 +168,7 @@
     <a href="/about">Hakkında</a>
     <a href="/contact">İletişim</a>
     <a href="/logout">Çıkış Yap</a>
+    <a  th:text="${kullanici.getUsername() +' '+kullanici.getUsersurname()}" th:value="${kullanici.getUserid()}">Hoşgeldiniz!</a>
     <div class="search-container">
         <form action="/user/Search" method="get">
             <input type="text" placeholder="Film Adı, Oyuncu Adı, Tür.." name="searchParam">
