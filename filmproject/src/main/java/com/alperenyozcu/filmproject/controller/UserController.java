@@ -70,7 +70,6 @@ public class UserController {
             String base64= Base64.getEncoder().encodeToString(film.getPoster());
             posters.add(base64);
         });
-
         model.addAttribute("Posters",posters);
         model.addAttribute("Film",searchFilm);
         return  new ModelAndView("UserFilms");
