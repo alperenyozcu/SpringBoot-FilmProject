@@ -27,10 +27,10 @@ Film Projesi Kullanıcıların admin tarafından eklenen filmleri listeleyip  fi
   * Ortam Değişkenlerinde JAVA_HOME olarak jdk nın bulunduğu dizin eklenmelidir
   * Proje klasörüne gidilir bu dizin içerisinde command promt çalıştırılır 
   * sırasıyla :
-      <p> mvn test </p>
-        <p> mvn install </p>
-       mvn clean 
-       mvn clean install
+     <p> mvn test </p>
+     <p> mvn install </p>
+     <p> mvn clean </p>
+     <p> mvn clean install</p>
        Komutları çalıştırılmalıdır bu sayede proje dizini içerisinde target klasöründe projenin jar dosyası oluşacaktır.
   * mySql veritabanında film project isimli şema oluşturulduğunda proje ayağa kaldırıldığı ilk anda Hibernate teknolojisi tarafından tablolar otomatik olarak oluşturulacaktır.
   filmproject isimli şema mySql veritabanında oluşturulduktan sonra target klasörü içerisindeki filmproject-0.0.1-SNAPSHOT.jar dosyası çalıştırılıp tarayıcıda  http://localhost:8080/ adresine gidilmelidir.
