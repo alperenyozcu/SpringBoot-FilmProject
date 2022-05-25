@@ -27,8 +27,8 @@ Film Projesi Kullanıcıların admin tarafından eklenen filmleri listeleyip  fi
   * Ortam Değişkenlerinde JAVA_HOME olarak jdk nın bulunduğu dizin eklenmelidir
   * Proje klasörüne gidilir bu dizin içerisinde command promt çalıştırılır 
   * sırasıyla :
-       mvn test
-       mvn install
+      <p> mvn test </p>
+        <p> mvn install </p>
        mvn clean 
        mvn clean install
        Komutları çalıştırılmalıdır bu sayede proje dizini içerisinde target klasöründe projenin jar dosyası oluşacaktır.
