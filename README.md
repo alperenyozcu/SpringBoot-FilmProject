@@ -20,4 +20,17 @@ Film Projesi Kullanıcıların admin tarafından eklenen filmleri listeleyip  fi
  ### İde Kullanarak 
   Proje kullanılan ide üzerinden veya github üzerinden clone edilip ilgili idenin çalıştırma konfigürasyouna FilmProjectApliication.java classı eklenmelidir.
  ### İde kullanmadan 
+  * Projenin çalıştırılacağı işletim sisteminde Maven yazılım yönetim aracı yüklü olmalıdır
+  * Maveni yüklemek için dökümantasyon:https://maven.apache.org/install.html
+  * Maveni indirmek için bağlantı:https://maven.apache.org/download.cgi
+  * Ortam değişkenleri->Sistem değişkenleri->Path kısmına indirilen maven'ın içerisindeki bin dosyasının dizini eklenmelidir. 
+  * Ortam Değişkenlerinde JAVA_HOME olarak jdk nın bulunduğu dizin eklenmelidir
+  * Proje klasörüne gidilir bu dizin içerisinde command promt çalıştırılır 
+  * sırasıyla :
+       mvn test
+       mvn install
+       mvn clean 
+       mvn clean install
+       Komutları çalıştırılmalıdır bu sayede proje dizini içerisinde target klasöründe projenin jar dosyası oluşacaktır.
+  * mySql veritabanında film project isimli şema oluşturulduğunda proje ayağa kaldırıldığı ilk anda Hibernate teknolojisi tarafından tablolar otomatik olarak oluşturulacaktır.
   filmproject isimli şema mySql veritabanında oluşturulduktan sonra target klasörü içerisindeki filmproject-0.0.1-SNAPSHOT.jar dosyası çalıştırılıp tarayıcıda  http://localhost:8080/ adresine gidilmelidir.
