@@ -33,4 +33,4 @@ Film Projesi Kullanıcıların admin tarafından eklenen filmleri listeleyip  fi
      <p> mvn clean install</p>
        Komutları çalıştırılmalıdır bu sayede proje dizini içerisinde target klasöründe projenin jar dosyası oluşacaktır.
   * mySql veritabanında film project isimli şema oluşturulduğunda proje ayağa kaldırıldığı ilk anda Hibernate teknolojisi tarafından tablolar otomatik olarak oluşturulacaktır.
-  filmproject isimli şema mySql veritabanında oluşturulduktan sonra target klasörü içerisindeki filmproject-0.0.1-SNAPSHOT.jar dosyası çalıştırılıp tarayıcıda  http://localhost:8080/ adresine gidilmelidir.
+ * filmproject isimli şema mySql veritabanında oluşturulduktan sonra target klasörü içerisindeki filmproject-0.0.1-SNAPSHOT.jar dosyası çalıştırılıp tarayıcıda  http://localhost:8080/ adresine gidilmelidir.
